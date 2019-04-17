@@ -14,6 +14,11 @@ for product in products:
         keywords_list.append([product, word + ' ' + product])
 # Make the list a DataFrame and rename columns
 keywords_df = pd.DataFrame.from_records(keywords_list, columns=['Ad Group', 'Keyword'])
+keywords_df['Campaign'] = 'SEM_Sofas'
+keywords_df['Criterion Type'] = 'Exact'
 
-
-pprint(keywords_df)
+# copy df and change the criterion column, then append dfs together
+keywords_phrase = keywords_df.copy()
+keywords_phrase.loc[:, 'Criterion Type'] = 'Phrase'
+keywords_df_final = keywords_df.append(keywords_phrase)
+pprint(keywords_df_final)
