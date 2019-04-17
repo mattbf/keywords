@@ -22,3 +22,5 @@ keywords_phrase = keywords_df.copy()
 keywords_phrase.loc[:, 'Criterion Type'] = 'Phrase'
 keywords_df_final = keywords_df.append(keywords_phrase)
 pprint(keywords_df_final)
+path = 'C:\\Users\\behanm\\Desktop\\github\\keywords\\'
+keywords_df_final.to_csv(path+'keywords.csv', index=False)
